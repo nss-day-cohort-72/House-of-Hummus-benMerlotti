@@ -1,20 +1,21 @@
-import { getVeggies, setVeggie } from "./database.js"
+import { getVeggies } from "./database.js"
+import { setVeggies } from "./transientState.js"
 
 const veggies = getVeggies()
 
-docment.addEventListener("change", (event) => {
+document.addEventListener("change", (event) => {
     if (event.target.name === "vegetable") {
-        setVeggie(event.target.value)
+        setVeggies(parseInt(event.target.value))
     }
 })
 
-export const Veggies = () => {
+export const veggiesList = () => {
 
     let html = `<ul>
         ${
-            vegies.map(vegtable => {
+            veggies.map(veg => {
                 return `<li>
-                            <input type="radio" name="vegetable" value="${vegetable.id}" /> ${vegetable.type}
+                            <input type="radio" name="vegetable" value="${veg.id}" /> ${veg.type}
                         </li>`
             }).join("")
         }

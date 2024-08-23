@@ -1,11 +1,8 @@
-import { addPurchase } from "./database.js"
+import { entreeList } from "./Entrees.js"
+import { saveButton } from "./orderButton.js"
 import { Sales } from "./Sales.js"
-
-document.addEventListener("click", (event) => {
-    if (event.target.id === "purchase") {
-
-    }
-})
+import { sidesList } from "./SideDishes.js"
+import { veggiesList } from "./Vegetables.js"
 
 export const FoodTruck = () => {
     return `
@@ -15,7 +12,22 @@ export const FoodTruck = () => {
         </header>
 
         <article>
-            <button id="purchase">Purchase Combo</button>
+            <h2>Entrees</h2>
+            ${entreeList()}
+        </article>
+
+        <article>
+            <h2>Veggies</h2>
+            ${veggiesList()}
+        </article>
+
+        <article>
+            <h2>Sides</h2>
+            ${sidesList()}
+        </article>
+
+        <article>
+            ${saveButton()}
         </article>
 
         <article class="customerOrders">
